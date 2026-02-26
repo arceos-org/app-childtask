@@ -32,7 +32,7 @@ const PFLASH_START: usize = 0x1d00_0000;
 
 #[cfg_attr(feature = "axstd", unsafe(no_mangle))]
 fn main() {
-    #[cfg(feature = "axstd")]
+    #[cfg(all(feature = "axstd", feature = "multitask"))]
     {
         use std::thread;
 
@@ -64,9 +64,9 @@ fn main() {
 
         println!("Multi-task OK!");
     }
-    #[cfg(not(feature = "axstd"))]
+    #[cfg(not(all(feature = "axstd", feature = "multitask")))]
     {
-        println!("This application requires the 'axstd' feature for multi-task and PFlash access.");
+        println!("This application requires the 'axstd' and 'multitask' features for multi-task and PFlash access.");
         println!("Run with: cargo xtask run [--arch <ARCH>]");
     }
 }
