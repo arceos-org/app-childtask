@@ -1,6 +1,6 @@
 [package]
 name = "arceos-childtask"
-version = "0.4.4"
+version = "0.4.6"
 edition = "2024"
 authors = ["Lei Shi <shi_lei@massclouds.com>", "Yu Chen <yuchen@tsinghua.edu.cn>"]
 description = "A multi-task child-thread crate (from crates.io) for ArceOS with PFlash MMIO access via page tables"
