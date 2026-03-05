@@ -4,7 +4,10 @@ use std::process::{self, Command};
 
 /// ArceOS childtask multi-architecture build & run tool
 #[derive(Parser)]
-#[command(name = "xtask", about = "Build and run arceos-childtask on different architectures")]
+#[command(
+    name = "xtask",
+    about = "Build and run arceos-childtask on different architectures"
+)]
 struct Cli {
     #[command(subcommand)]
     command: Cmd,
@@ -168,10 +171,10 @@ fn find_seabios() -> PathBuf {
 /// - loongarch64:  pflash1 size is flexible (we use 4MB)
 fn pflash_size(arch: &str) -> usize {
     match arch {
-        "riscv64" => 32 * 1024 * 1024,     // 32MB - fixed by QEMU virt machine
-        "aarch64" => 64 * 1024 * 1024,     // 64MB - fixed by QEMU virt machine
-        "x86_64" => 4 * 1024 * 1024,       // 4MB
-        "loongarch64" => 4 * 1024 * 1024,  // 4MB
+        "riscv64" => 32 * 1024 * 1024,    // 32MB - fixed by QEMU virt machine
+        "aarch64" => 64 * 1024 * 1024,    // 64MB - fixed by QEMU virt machine
+        "x86_64" => 4 * 1024 * 1024,      // 4MB
+        "loongarch64" => 4 * 1024 * 1024, // 4MB
         _ => 4 * 1024 * 1024,
     }
 }
